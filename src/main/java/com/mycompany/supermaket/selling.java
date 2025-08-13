@@ -418,7 +418,7 @@ PreparedStatement pst = null;
     try (Connection con = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/supermarketdb",
             "root",
-            "Kenny4640"
+            "******"
         )) {
 
         String updateQuery;
