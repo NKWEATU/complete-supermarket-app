@@ -184,7 +184,7 @@ public class UpdateAdmin extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, "Missing Information");
 } else {
     try {
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "Kenny4640");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "*****");
 
         String query = "UPDATE admintable SET adminName = ?, adminPass = ? WHERE admin_Id = ?";
         PreparedStatement pst = con.prepareStatement(query);
