@@ -405,7 +405,7 @@ PreparedStatement pst = null;
        try{
             String query = "INSERT INTO `product`(`prod_Id`, `name`, `category`, `quantity`, `price`) VALUES (?,?,?,?,?)";
                                         //use this line of code for mysql in xamp "jdbc:mysql://127.0.0.1:3306/user_registeration_database","root",""
-             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","Kenny4640");
+             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","*****");
              pst = con.prepareStatement(query);
              pst.setString(1, prod_Id.getText());
              pst.setString(2, prodName.getText());
