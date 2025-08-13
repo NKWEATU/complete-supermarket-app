@@ -22,7 +22,7 @@ public class ConnectionProvider {
             
             //use this line of code for mysql in xamp "jdbc:mysql://127.0.0.1:3306/user_registeration_database","root",""
                                 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","Kenny4640");//for mysql workbench
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","******");//for mysql workbench
             
         }catch (ClassNotFoundException | SQLException e ) {
         System.out.println(e);
