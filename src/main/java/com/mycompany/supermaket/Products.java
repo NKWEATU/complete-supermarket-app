@@ -41,7 +41,7 @@ PreparedStatement pst = null;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        prod_Id = new javax.swing.JTextField();
+        product_Id = new javax.swing.JTextField();
         prodName = new javax.swing.JTextField();
         prodQuantity = new javax.swing.JTextField();
         prodPrice = new javax.swing.JTextField();
@@ -93,8 +93,8 @@ PreparedStatement pst = null;
         jLabel5.setForeground(new java.awt.Color(255, 51, 0));
         jLabel5.setText("PRICE   ");
 
-        prod_Id.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
-        prod_Id.setForeground(new java.awt.Color(255, 51, 0));
+        product_Id.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        product_Id.setForeground(new java.awt.Color(255, 51, 0));
 
         prodName.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         prodName.setForeground(new java.awt.Color(255, 51, 0));
@@ -198,7 +198,7 @@ PreparedStatement pst = null;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(prodCategory, 0, 179, Short.MAX_VALUE)
-                    .addComponent(prod_Id)
+                    .addComponent(product_Id)
                     .addComponent(prodName))
                 .addGap(162, 162, 162)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +245,7 @@ PreparedStatement pst = null;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(prod_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(product_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(prodQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -375,7 +375,7 @@ PreparedStatement pst = null;
     private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
         // TODO add your handling code here:
         
-         if (prod_Id.getText().isEmpty() )
+         if (product_Id.getText().isEmpty() )
                  { 
                      JOptionPane.showMessageDialog( null,"Enter product_ID"); 
                  }
@@ -403,11 +403,11 @@ PreparedStatement pst = null;
          else {
               
        try{
-            String query = "INSERT INTO `product`(`prod_Id`, `name`, `category`, `quantity`, `price`) VALUES (?,?,?,?,?)";
+            String query = "INSERT INTO `product`(`product_Id`, `name`, `category`, `quantity`, `price`) VALUES (?,?,?,?,?)";
                                         //use this line of code for mysql in xamp "jdbc:mysql://127.0.0.1:3306/user_registeration_database","root",""
-             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","*****");
+             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","123456");
              pst = con.prepareStatement(query);
-             pst.setString(1, prod_Id.getText());
+             pst.setString(1, product_Id.getText());
              pst.setString(2, prodName.getText());
              pst.setString(3, (String)prodCategory.getSelectedItem());
              pst.setString(4, prodQuantity.getText());
@@ -432,7 +432,7 @@ PreparedStatement pst = null;
         // TODO add your handling code here:
           DefaultTableModel model = (DefaultTableModel)prodTable.getModel();
          int myIndex = prodTable.getSelectedRow();
-        prod_Id.setText(model.getValueAt(myIndex, 0).toString());
+        product_Id.setText(model.getValueAt(myIndex, 0).toString());
          prodName.setText(model.getValueAt(myIndex, 1).toString());
           prodQuantity.setText(model.getValueAt(myIndex, 2).toString());
            prodPrice.setText(model.getValueAt(myIndex, 3).toString());
@@ -441,7 +441,7 @@ PreparedStatement pst = null;
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-         prod_Id.setText("");
+         product_Id.setText("");
           prodQuantity.setText("");
             prodName.setText("");
               prodPrice.setText("");
@@ -458,7 +458,7 @@ PreparedStatement pst = null;
         {
             while(rs.next())
             {
-                model.addRow(new Object[]{rs.getString("prod_Id"),rs.getString("name"),rs.getString("category"),rs.getString("quantity"),rs.getString("price")});
+                model.addRow(new Object[]{rs.getString("product_Id"),rs.getString("name"),rs.getString("category"),rs.getString("quantity"),rs.getString("price")});
             }
             rs.close();
            
@@ -471,14 +471,14 @@ PreparedStatement pst = null;
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-         if (prod_Id.getText().isEmpty()) {
+         if (product_Id.getText().isEmpty()) {
     JOptionPane.showMessageDialog(null, "Select the product to be deleted by clicking on the table row");
 } else {
     try {
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "Kenny4640");
-        String productName = prod_Id.getText();
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "123456");
+        String productName = product_Id.getText();
 
-        String query = "DELETE FROM product WHERE prod_Id = ?";
+        String query = "DELETE FROM product WHERE product_Id = ?";
         PreparedStatement stmt = con.prepareStatement(query);
         stmt.setString(1, productName);
 
@@ -505,20 +505,20 @@ PreparedStatement pst = null;
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-         if (prod_Id.getText().isEmpty() || prodName.getText().isEmpty()|| prodQuantity.getText().isEmpty() || prodPrice.getText().isEmpty()|| prodCategory.getSelectedItem().equals("Select_Category")) {
+         if (product_Id.getText().isEmpty() || prodName.getText().isEmpty()|| prodQuantity.getText().isEmpty() || prodPrice.getText().isEmpty()|| prodCategory.getSelectedItem().equals("Select_Category")) {
     JOptionPane.showMessageDialog(this, "Missing Information");
    } else {
     try {
          
              //declaration of string variable
-        String productId = prod_Id.getText();
+        String productId = product_Id.getText();
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "Kenny4640");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "123456");
 
-        String query = "UPDATE product SET prod_Id = ?, name = ?, category = ? , quantity = ?, price = ? WHERE prod_Id ='" + productId +"' ";
+        String query = "UPDATE product SET product_Id = ?, name = ?, category = ? , quantity = ?, price = ? WHERE product_Id ='" + productId +"' ";
 
         PreparedStatement pst = con.prepareStatement(query);
-        pst.setString(1, prod_Id.getText());
+        pst.setString(1, product_Id.getText());
         pst.setString(2, prodName.getText());
         pst.setString(3, prodCategory.getSelectedItem().toString());
         pst.setString(4, prodQuantity.getText());
@@ -637,6 +637,6 @@ PreparedStatement pst = null;
     private javax.swing.JTextField prodPrice;
     private javax.swing.JTextField prodQuantity;
     private javax.swing.JTable prodTable;
-    private javax.swing.JTextField prod_Id;
+    private javax.swing.JTextField product_Id;
     // End of variables declaration//GEN-END:variables
 }

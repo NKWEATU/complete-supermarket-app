@@ -67,8 +67,6 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("NICE SERVICE");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\cartimage.jpeg")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(

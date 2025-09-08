@@ -339,7 +339,7 @@ public class Category extends javax.swing.JFrame {
        try{
             String query = "INSERT INTO `category`(`cat_Id`, `catName`, `catDescription`) VALUES (?,?,?)";
                                         //use this line of code for mysql in xamp "jdbc:mysql://127.0.0.1:3306/user_registeration_database","root",""
-             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","*****");
+             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","123456");
              pst = con.prepareStatement(query);
              pst.setString(1, cat_Id.getText());
              pst.setString(2,catName.getText());
@@ -448,7 +448,7 @@ public class Category extends javax.swing.JFrame {
              //declaration of string variable
         String catId = cat_Id.getText();
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "Kenny4640");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "123456");
 
         String query = "UPDATE category SET cat_Id = ?, catName  = ?, catDescription = ? WHERE cat_Id ='" + catId +"' ";
 

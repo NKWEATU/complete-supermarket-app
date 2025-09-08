@@ -418,14 +418,14 @@ PreparedStatement pst = null;
     try (Connection con = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/supermarketdb",
             "root",
-            "******"
+            "123456"
         )) {
 
         String updateQuery;
         PreparedStatement pst;
 
         if (productIdStr != null && !productIdStr.isEmpty() && productIdStr.matches("\\d+")) {
-            updateQuery = "UPDATE product SET quantity = ? WHERE prod_Id = ?";
+            updateQuery = "UPDATE product SET quantity = ? WHERE product_Id = ?";
             pst = con.prepareStatement(updateQuery);
             pst.setInt(1, availableQuantity - requestedQuantity);
             pst.setInt(2, Integer.parseInt(productIdStr));
@@ -467,7 +467,7 @@ private void reloadProductsTable() {
 
         while (rs.next()) {
             model.addRow(new Object[]{
-                rs.getInt("prod_Id"),
+                rs.getInt("product_Id"),
                 rs.getString("name"),
                 rs.getString("category"),
                 rs.getInt("quantity"),
@@ -605,7 +605,7 @@ private int availableQuantity = 0;      // stock for selected product
         boolean hasResults = false;
         while (rs.next()) {
             model.addRow(new Object[]{
-                rs.getInt("prod_Id"),
+                rs.getInt("product_Id"),
                 rs.getString("name"),
                 rs.getString("category"),
                 rs.getInt("quantity"),   // quantity in COL_QTY

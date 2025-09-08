@@ -366,7 +366,7 @@ PreparedStatement pst = null;
        try{
             String query = "INSERT INTO `sellers`(`password`, `name`, `gender`) VALUES (?,?,?)";
                                         //use this line of code for mysql in xamp "jdbc:mysql://127.0.0.1:3306/user_registeration_database","root",""
-             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","Kenny4640");
+             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb","root","123456");
              pst = con.prepareStatement(query);
              pst.setString(1, sellerPassword.getText());
              pst.setString(2, sellerName.getText());
@@ -487,7 +487,7 @@ PreparedStatement pst = null;
              //declaration of string variable
         String sellerId = seller_Id.getText();
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "Kenny4640");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "123456");
 
         String query = "UPDATE sellers SET name = ?, password = ?, gender = ? WHERE seller_Id ='" + sellerId +"' ";
 
