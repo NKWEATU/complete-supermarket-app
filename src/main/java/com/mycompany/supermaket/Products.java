@@ -430,13 +430,13 @@ PreparedStatement pst = null;
 
     private void prodTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prodTableMouseClicked
         // TODO add your handling code here:
-          DefaultTableModel model = (DefaultTableModel)prodTable.getModel();
-         int myIndex = prodTable.getSelectedRow();
-        product_Id.setText(model.getValueAt(myIndex, 0).toString());
-         prodName.setText(model.getValueAt(myIndex, 1).toString());
-          prodQuantity.setText(model.getValueAt(myIndex, 2).toString());
-           prodPrice.setText(model.getValueAt(myIndex, 3).toString());
-            prodCategory.setSelectedItem(model.getValueAt(myIndex, 4).toString());
+           DefaultTableModel model = (DefaultTableModel)prodTable.getModel();
+            int myIndex = prodTable.getSelectedRow();
+            product_Id.setText(model.getValueAt(myIndex, 0).toString());
+            prodName.setText(model.getValueAt(myIndex, 1).toString());
+            prodCategory.setSelectedItem(model.getValueAt(myIndex, 2));
+            prodQuantity.setText(model.getValueAt(myIndex, 3).toString());
+            prodPrice.setText(model.getValueAt(myIndex, 4).toString());
     }//GEN-LAST:event_prodTableMouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
