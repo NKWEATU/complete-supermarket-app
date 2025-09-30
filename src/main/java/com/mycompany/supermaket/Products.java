@@ -23,8 +23,30 @@ PreparedStatement pst = null;
 
     public Products() {
         initComponents();
+         Category();
     }
+    
+    public void Category() {
+    try {
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "123456");
+        String query = "SELECT catName FROM category";
+        PreparedStatement pst = con.prepareStatement(query);
+        ResultSet rs = pst.executeQuery();
 
+        prodCategory.removeAllItems();  // Clear old items
+        prodCategory.addItem("Select_Category"); // Default item
+
+        while (rs.next()) {
+            String categoryName = rs.getString("catName");
+            prodCategory.addItem(categoryName);
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error loading categories: " + e.getMessage());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
