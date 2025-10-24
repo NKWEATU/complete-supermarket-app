@@ -448,7 +448,7 @@ PreparedStatement pst = null;
     JOptionPane.showMessageDialog(null, "Select the seller to be deleted by clicking on the table row");
 } else {
     try {
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "Kenny4640");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarketdb", "root", "123456");
         String sName = sellerName.getText();
 
         String query = "DELETE FROM sellers WHERE name = ?";
